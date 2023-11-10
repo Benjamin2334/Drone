@@ -1,0 +1,37 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+ifstream fin("drone.in");
+ofstream fout("drone.out");
+long long int n, x, s=0, nr, ok=0, ok_par=0, r, verif=0;
+int main()
+{
+    fin>>n;
+    for(int i=1;i<=n;i++){
+        fin>>nr;
+        ok_par=0;
+        verif=0;
+        while(nr){
+                verif=1;
+            r=nr%10;
+            if(r%2==0){
+                ok_par=1;
+
+            }
+            x=nr;
+            nr=nr/10;
+
+        }
+
+        if(x<7 && verif==1 && ok_par==1){
+                s++;
+            }
+        else if(verif==0){
+            s++;
+        }
+
+    }
+    fout<<s;
+    return 0;
+}
